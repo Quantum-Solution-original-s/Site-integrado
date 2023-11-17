@@ -46,20 +46,21 @@
 
     <div>
       <img src="">
+      <img src="assets/Logo.png" alt="logo" class="logo2">
       <h1 class="title-cadastro">Criar conta</h1>
-      <p class="sub-title">Cadastrar-se com:</p>
+      <!-- <p class="sub-title">Cadastrar-se com:</p> -->
 
       <!-- MEIOS DE CADASTRO E IAMGEM -->
       <div class="metodos-login">
-        <div class="circulo-rede-social">
+        <!-- <div class="circulo-rede-social">
           <img class="icon-cadastro-google" src="assets/icons/google.png">
         </div>
 
         <div class="circulo-rede-social">
           <img class="icon-cadastro-linkedin" src="assets/icons/linkedin.png">
-        </div>
+        </div> -->
       </div>
-      <p>Ou</p>
+      <!-- <p>Ou</p> -->
 
       <!-- CADASTRO -->
       <div class="cadastro-inputs">
@@ -112,7 +113,7 @@
         </div>
                 
         <div class="icons-telefone">
-          <img src="" > <input type="text" class="telefone-input" id="ipt_telefone" placeholder="Telefone"> 
+          <input type="text" class="telefone-input" id="ipt_telefone" placeholder="Telefone"> 
         </div>
        </div> 
        <!-- FINAL -->
@@ -129,7 +130,7 @@
         </div>
 
         <div class="icons-plano">
-          <select id="tipo_plano">
+          <select class="tipo_plano" id="tipo_plano">
             <option value="Standart">Standart</option>
             <option value="Premium">Premium</option>
           </select>
@@ -137,14 +138,51 @@
       </div>
 
       <!-- ENDERECO -->
+      <div class="title-endereco">
+        <p class="title-input"> Estado</p>
+        <p class="title-input"> Cidade</p>
+      </div>
       <div class="container-endereco">
-        
+        <select class="estado_option" id="estado">
+          <option value="AC">AC</option>
+          <option value="AL">AL</option>
+          <option value="AP">AP</option>
+          <option value="AM">AM</option>
+          <option value="BA">BA</option>
+          <option value="CE">CE</option>
+          <option value="ES">ES</option>
+          <option value="GO">GO</option>
+          <option value="MA">MA</option>
+          <option value="MT">MT</option>
+          <option value="MS">MS</option>
+          <option value="MG">MG</option>
+          <option value="PA">PA</option>
+          <option value="PB">PB</option>
+          <option value="PR">PR</option>
+          <option value="PE">PE</option>
+          <option value="PI">PI</option>
+          <option value="RJ">RJ</option>
+          <option value="RN">RN</option>
+          <option value="RS">RS</option>
+          <option value="RO">RO</option>
+          <option value="RR">RR</option>
+          <option value="SC">SC</option>
+          <option value="SP">SP</option>
+          <option value="SE">SE</option>
+          <option value="TO">TO</option>
+          <option value="DF">DF</option>
+        </select>
+
+        <div class="cidade">
+          <img src=""> <input type="text" class="cidade_ipt" id="ipt_cidade" placeholder="Noma da sua Cidade">
+        </div> 
       </div>
 
-      <br>
+      <br> 
+      <br> 
     <button onclick="cadastrar()" class="acessar-button-style">Cadastrar</button>
     </div>
-    <p>Ja tem uma conta? clique em <a class="mensagem-cadastro-ou-login" href="./Tela Login.html">logar para acessar sua conta.</a></p>
+    <!-- <span class="mensagem-cadastro">Ja tem uma conta? clique em <a class="mensagem-cadastro-ou-login" href="./Tela Login.html">logar para acessar sua conta.</a></span> -->
     
   </div>
 </div>

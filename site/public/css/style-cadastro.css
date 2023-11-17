@@ -130,7 +130,7 @@ main {
 }
 
 .logo2 {
-  margin: 0;
+  margin: 20px 0 0 0;
   width: 100px;
   height: 100px;
 }
@@ -232,13 +232,14 @@ main {
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.445);
   border-radius: 8px;
   color: white;
+  
 }
 
 .title-cadastro {
   font-size: 38px;
   color: #efcafd;
   font-weight: bold;
-  margin: 20px;
+  margin: 20px 0 30px 0;
 }
 
 .sub-title {
@@ -336,7 +337,7 @@ input::placeholder {
 /* INPUT USUARIO */
 .icons {
   display: flex;
-  margin: 0 20px 0 0;
+  margin: 0 20px 0 20px;
   background-color: white;
   border-radius: 20px;
 }
@@ -388,7 +389,7 @@ input::placeholder {
 
 .telefone-input {
   border-radius: 20px;
-  width: 1200px;
+  width: 600px;
   height: 39px;
   border: none;
   font-size: 18px;
@@ -403,8 +404,8 @@ input::placeholder {
 
 .icons-telefone {
   display: flex;
-  width: 300px;
-  margin: 0 20px 0 0;
+  width: 405px;
+  margin: 0 0 0 0;
   background-color: white;
   border-radius: 20px;
 }
@@ -412,9 +413,9 @@ input::placeholder {
 .telefone-container {
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  justify-content: flex-start;
   flex-direction: row;
-  margin: 0 100px 0 0;
+  margin: 0 0 0 0;
 }
 
 .plano-qtdEstufa {
@@ -427,7 +428,7 @@ input::placeholder {
 
 .icons-plano {
   display: flex;
-  width: 100px;
+  width: 120px;
   height: 45px;
   margin: 0 0 0 20px;
   background-color: white;
@@ -444,6 +445,56 @@ input::placeholder {
   border-radius: 20px;
 }
 
+.title-endereco {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  justify-content: flex-start;
+  column-gap: 40px;
+}
+.container-endereco {
+  display: flex;
+  flex-direction: row;
+}
+
+.tipo_plano {
+  width: 110px;
+  border-radius: 20px;
+  height: 39px;
+  border: none;
+  font-size: 20px;
+  outline: none;
+  margin-top: 4px;
+  padding: 0px 0px 0px 5px;
+}
+
+.estado_option {  
+  width: 100px;
+  border-radius: 20px;
+  height: 39px;
+  border: none;
+  font-size: 20px;
+  outline: none;
+  margin-top: 4px;
+  padding: 0px 0px 0px 25px;
+}
+.cidade {
+  display: flex;
+  flex-direction: row;
+  margin-left: 30px;
+}
+
+.cidade_ipt {
+  display: flex;
+  width: 390px;
+  height: 45px;
+  margin: 0 0 0 20px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 0 0 0 5px;
+  border: none;
+  outline: none;
+}
 
 /* INPUT SENHA */
 
@@ -519,6 +570,7 @@ input::placeholder {
 .mensagem-cadastro-ou-login {
   text-decoration: none;
   color: white;
+  margin: 50px 0 0 0;
 }
 
 .mensagem-cadastro-ou-login:hover {
@@ -528,6 +580,10 @@ input::placeholder {
 .mensagem-cadastro-ou-login:active {
   color: #7632d5;
 }
+.mensagem-cadastro{
+  margin: 0 0 40px 0;
+}
+
 
 .acessar-button-style {
   margin: 30px 0 0 0;
