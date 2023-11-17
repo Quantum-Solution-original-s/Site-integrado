@@ -43,6 +43,7 @@
     <main>
       <!-- CADASTRO -->
   <div class="container-cadastro">
+
     <div>
       <img src="">
       <h1 class="title-cadastro">Criar conta</h1>
@@ -62,10 +63,6 @@
 
       <!-- CADASTRO -->
       <div class="cadastro-inputs">
-      <p class="title-input">Empresa:</p>
-      <select name="empresas" id="listaEmpresas">
-        <option selected>Selecione uma empresa</option>
-      </select>
       <p class="title-input">Nome da Empresa: <br>
         <div class="icons">
           <img class="img-user" src="./assets/icons/user.png"> <input type="text" class="inputs" id="nome_input" placeholder="Digite o nome da Empresa">
@@ -82,7 +79,7 @@
 
       <p class="title-input">Confirmar Senha: <br>
         <div class="icons">
-          <img class="img-senha" src="imagens/cadeado-seguro.png"> <input type="password" class="inputs-senha" id="confirmacao_senha" placeholder="Confirme sua senha">
+          <img class="img-senha" src="assets/icons/cadeado-seguro.png"> <input type="password" class="inputs-senha" id="confirmacao_senha" placeholder="Confirme sua senha">
           <i id="btn-confirmar-senha" onclick="mostrar_confirmar_senha()" class="bi bi-eye"></i>
         </div>
         <div id="msg_alert" style="margin-top: 8px;"></div>
@@ -100,12 +97,57 @@
           <img class="icon-cnpj-input" src="./assets/icons/iconCnpj.png"> <input type="text" class="inputs" id="cnpj_input" placeholder="Digite o CNPJ da Empresa">
         </div>
       </p>
+
+
+      <!-- TELEFONE -->
+      <div class="telefone-title">
+      <p class="title-input dd"> DD</p>
+      <p class="title-input telefone"> Telefone</p>
+      </div>
+
+      <div class="telefone-container">  
+        
+        <div class="icons-dd">
+          <img src="" > <input type="number" class="dd_numero" id="ipt_dd" placeholder="DD">
+        </div>
+                
+        <div class="icons-telefone">
+          <img src="" > <input type="text" class="telefone-input" id="ipt_telefone" placeholder="Telefone"> 
+        </div>
+       </div> 
+       <!-- FINAL -->
+
+       <div class="title-container">
+        <p class="title-input">Quantidade de Estufas</p>
+        <p class="title-input plano">Plano</p>
+       </div>
+
+       <div class="plano-qtdEstufa">
+        
+        <div class="icons-estufa">
+          <img src="" > <input type="number" class="estufa_numero" id="ipt_estufa" placeholder="Qtd de Estufas">
+        </div>
+
+        <div class="icons-plano">
+          <select id="tipo_plano">
+            <option value="Standart">Standart</option>
+            <option value="Premium">Premium</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- ENDERECO -->
+      <div class="container-endereco">
+        
+      </div>
+
       <br>
     <button onclick="cadastrar()" class="acessar-button-style">Cadastrar</button>
     </div>
     <p>Ja tem uma conta? clique em <a class="mensagem-cadastro-ou-login" href="./Tela Login.html">logar para acessar sua conta.</a></p>
     
   </div>
+</div>
 </div>
     </main>
 
@@ -191,46 +233,45 @@ function mostrar_senha () {
     inputPass.setAttribute('type', 'password')
     btnShowPass.classList.replace('bi-eye-slash', 'bi-eye')
   }
+  
 }
 
 function mostrar_confirmar_senha () {
-  var inputPass = document.getElementById('confirmar_senha')
+  var inputPassConfirm = document.getElementById('confirmacao_senha')
   var btnShowPass = document.getElementById('btn-confirmar-senha')
 
-  if(inputPass.type === 'password') {
-    inputPass.setAttribute('type', 'text')
+  if(inputPassConfirm.type === 'password') {
+    inputPassConfirm.setAttribute('type', 'text')
     btnShowPass.classList.replace('bi-eye', 'bi-eye-slash')
   } else {
-    inputPass.setAttribute('type', 'password')
+    inputPassConfirm.setAttribute('type', 'password')
     btnShowPass.classList.replace('bi-eye-slash', 'bi-eye')
   }
 }
 
+
+
 </script>
 <script>
-function cadastrar() {
 
+function cadastrar() {
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
-    var cnpjVar = cnpj_input.value;
-    var senhaVar = ipt_senha.value;
-    var confirmacaoSenhaVar = confirmacao_senha.value;
-    var empresaVar = listaEmpresas.value
+    var senhaVar = ipt_senha.value
+    var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    var cnpjVar = cnpj_input.value
     if (
       nomeVar == "" ||
-      emailVar == "" ||
       senhaVar == "" ||
-      cnpjVar == "" ||
       confirmacaoSenhaVar == "" ||
-      empresaVar == "" 
+      cnpjVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "(Mensagem de erro para todos os campos em branco)";
 
-      finalizarAguardar();
+      // finalizarAguardar();
       return false;
     } else {
       setInterval(sumirMensagem, 5000);
@@ -247,9 +288,8 @@ function cadastrar() {
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         emailServer: emailVar,
-        cnpjServer: cnpjVar,
         senhaServer: senhaVar,
-        empresaServer: empresaVar
+        cnpjServer: cnpjVar
       }),
     })
       .then(function (resposta) {
@@ -262,40 +302,20 @@ function cadastrar() {
             "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
           setTimeout(() => {
-            // PAGINA DE LOGIN
             window.location = "Tela Login.html";
           }, "2000");
 
           limparFormulario();
-          finalizarAguardar();
+          // finalizarAguardar();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
+        // finalizarAguardar();
       });
 
     return false;
   }
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-  }
-
-  function sumirMensagem() {
-    cardErro.style.display = "none";
-  }
-</script>
+  </script>

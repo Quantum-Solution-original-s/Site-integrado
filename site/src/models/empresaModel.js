@@ -1,7 +1,7 @@
 var database = require("../database/config");
 
 function buscarPorId(id) {
-  var query = `select * from empresa where idEmpresa = '${id}'`;
+  var query = `select * from empresa where id = '${id}'`;
 
   return database.executar(query);
 }
@@ -24,4 +24,4 @@ function cadastrar(razaoSocial, cnpj) {
   return database.executar(query);
 }
 
-module.exports = { buscarPorCnpj, buscarPorId, cadastrar, listar};
+module.exports = { buscarPorCnpj, buscarPorId, cadastrar, listar };

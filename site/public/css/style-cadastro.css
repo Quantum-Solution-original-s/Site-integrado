@@ -226,9 +226,10 @@ main {
   margin: 0 auto;
   margin-top: 7%;
   margin-bottom: 7%;
-  height: 863px;
+  height: 1000px;
   width: 573px;
-  background: linear-gradient(#af86e9cf, #6d0fa0c4);
+  background: linear-gradient(#af86e9bd, #6d0fa0e5);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.445);
   border-radius: 8px;
   color: white;
 }
@@ -306,7 +307,7 @@ p {
   padding: 0px 0px 0px 11px;
 }
 
-.inputs::placeholder {
+input::placeholder {
   padding: 8px;
   font-size: 18px;
   font-weight: bold;
@@ -340,6 +341,14 @@ p {
   border-radius: 20px;
 }
 
+.icons-dd {
+  display: flex;
+  width: 110px;
+  margin: 0 20px 0 0;
+  background-color: white;
+  border-radius: 20px;
+}
+
 .icons i {
   margin: 3px 0 0 13px;
 
@@ -358,6 +367,82 @@ p {
 }
 
 /* FINAL INPUT USUARIO */
+.dd_numero {
+  width: 100px;
+  border-radius: 20px;
+  height: 39px;
+  border: none;
+  font-size: 20px;
+  outline: none;
+  margin-top: 4px;
+  padding: 0px 0px 0px 25px;
+}
+
+.telefone-title {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+  margin: 0 16px 0 0;
+}
+
+
+.telefone-input {
+  border-radius: 20px;
+  width: 1200px;
+  height: 39px;
+  border: none;
+  font-size: 18px;
+  outline: none;
+  margin-top: 4px;
+  padding: 0px 0px 0px 11px;
+}
+
+.telefone {
+  margin-left: 95px;
+}
+
+.icons-telefone {
+  display: flex;
+  width: 300px;
+  margin: 0 20px 0 0;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.telefone-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  margin: 0 100px 0 0;
+}
+
+.plano-qtdEstufa {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  margin: 0 130px 0 0;
+}
+
+.icons-plano {
+  display: flex;
+  width: 100px;
+  height: 45px;
+  margin: 0 0 0 20px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.icons-plano select {
+  border: none;
+  font-weight: bold;
+  font-size: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
 
 
 /* INPUT SENHA */
@@ -395,6 +480,41 @@ p {
 }
 
 /* FINAL */
+
+.icons-estufa {
+  display: flex;
+  width: 200px;
+  background-color: white;
+  border-radius: 20px;
+  margin-right: 90px;
+}
+
+.estufa_numero {
+  border-radius: 20px;
+  width: 190px;
+  height: 39px;
+  border: none;
+  font-size: 18px;
+  outline: none;
+  margin-top: 4px;
+  padding: 0px 0px 0px 11px;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+  margin: 0 16px 0 0;
+  }
+
+.plano {
+    margin-left: 75px;
+}
+
+
+
+
+/* FINAL CADASTRO */
 
 .mensagem-cadastro-ou-login {
   text-decoration: none;

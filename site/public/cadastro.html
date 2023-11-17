@@ -8,7 +8,7 @@
 
   <title>AquaTech | Cadastro</title>
 
-  <!-- <script src="./js/sessao.js"></script> -->
+  <script src="./js/sessao.js"></script>
 
   <link rel="icon" href="./assets/icon/favicon2.ico" />
   <link rel="stylesheet" href="./css/estilo.css" />
@@ -71,10 +71,6 @@
             <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
           </div>
           <div class="campo">
-            <span>CPF:</span>
-            <input id="cpf_input" type="text" placeholder="CPF" />
-          </div>
-          <div class="campo">
             <span>Senha:</span>
             <input id="senha_input" type="password" placeholder="******" />
           </div>
@@ -113,7 +109,6 @@
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
-    var cpfVar = cpf_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
     var empresaVar = listaEmpresas.value
@@ -121,7 +116,6 @@
       nomeVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
-      cpfVar == "" ||
       confirmacaoSenhaVar == "" ||
       empresaVar == ""
     ) {
@@ -146,7 +140,6 @@
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         emailServer: emailVar,
-        cpfServer: cpfVar,
         senhaServer: senhaVar,
         empresaServer: empresaVar
       }),
