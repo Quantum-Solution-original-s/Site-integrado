@@ -1,0 +1,200 @@
+<!--background: linear-gradient(180deg, #333066 0%, #100D40 100%);-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano Standard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/style-pagamento.css">
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="container">
+            <a href="../Tela Inicial/index.html">
+                <img src="./img/Logo.png" alt="logo" class="logo1">
+            </a>
+            <h1 class="logo"></h1>
+            <div class="nav-bar-left">
+                <ul>
+                    <li><a class="a-nav-left" href="./Tela Inicial.html">Home</a></li>
+                    <li><a class="a-nav-left" href="./Tela plano de sensores.html">Planos de sensores</a></li>
+                    <li><a class="a-nav-left" href="./Tela Calculadora.html" target="_blank">Calculadora</a></li>
+                    <li><a class="a-nav-left" href="./Tela Contato.html">Contato</a></li>
+                    <li><a class="a-nav-left" href="./Tela Dashboard/Tela DashBoard.html">Dashboard</a></li>
+                    <li><a class="a-nav-left" href="./Tela Quantum.html">Equipe Quantum</a></li>
+                </ul>
+            </div>
+            <div class="nav-bar-right">
+
+                <a class="a-nav-right" href="#"> <b>Login</b></a>
+                <button class="button-cadastro"><a href="#"> <b>Cadastro</b> </a></button>
+
+            </div>
+            <div class="barra_lateral">
+                <i onclick="gerenciarMenu()" class="fa-solid fa-bars" style="color: #e8e1f1;"></i>
+            </div>
+        </div>
+    </div>
+
+    <menu id="menu" class="menu_barra">
+        <ul class="ul-menu-barra">
+            <li><a class="a-nav-left" href="#">Home</a></li>
+            <li><a class="a-nav-left" href="#">Planos de sensores</a></li>
+            <li><a class="a-nav-left" href="#">Contato</a></li>
+            <li><a class="a-nav-right" href="#"> <b>Login</b></a></li>
+            <li><button class="button-cadastro"><a href="#"> <b>Cadastro</b> </a></button></li>
+        </ul>
+    </menu>
+  
+
+<!-- PAGAMENTO -->
+    <div class="div-pai-telapag">
+        <div class="formulario-telapag">
+        
+            <form>
+                <div class="plano-standard">
+                    <p class="title-standard">Plano Standard</p>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label>NOME DA EMPRESA:</label>
+                    <input type="text" id="empresa" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>E-MAIL:</label>
+                    <input type="email" id="email-telapag" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cnpj">CNPJ:</label>
+                    <input type="number" id="cnpj" required >
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">TELEFONE COM DDD:</label>
+                    <input type="number" id="telefone" required>
+                </div>
+
+                <div class="form-group-inline">
+                    <div class="form-group">
+                        <label for="cep">CEP:</label>
+                        <input type="number" id="cep" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sensores">QUANTIDADE DE SENSORES:</label>
+                        <input type="number" id="sensores" required>
+                    </div>
+                </div>
+
+                
+                <h3>Pagar com:</h3><br>
+                <div class="botao-pag">
+                    <button class="botao-telapag">
+                        <i class="fas fa-barcode"></i> <!-- Ícone de boleto (usando FontAwesome) -->
+                        Continuar com boleto
+                    </button>
+                    <button class="botao-telapag">
+                        <i class="fas fa-credit-card"></i> <!-- Ícone de débito (usando FontAwesome) -->
+                        Continuar com débito
+                    </button>
+                    <button class="botao-telapag">
+                        <i class="fas fa-credit-card"></i> <!-- Ícone de crédito (usando FontAwesome) -->
+                        Continuar com crédito
+                    </button>
+                </div>
+            </form>
+            
+        </div> 
+        <div class="informacoes-telapag">
+            <center><h3>Informações da Compra</h3><br><br></center>
+            <center><h3 style="color: blueviolet;">Quantum Standard</h3></center>
+            <p><b>Valor variado</b> (de R$ XX.000,00 a RXX.000,00) <b>anual</b></p><br>
+            <p><b>Descrição do produto:</b></p><br>
+            <p>Nossos sensores diretamente ligados ao nossa plataforma e ao nosso software farão o monitoramento da temperatura e da umidade dentro das estufas, tornando assim a sua plantação muito mais produtiva e suas mudas com mais qualidade. Além disso, nós faremos a instalação e primeiros ajustes dos sensores, e você terá direito a nossa assistência técnica especializada.</p><br><br><br><br>
+        
+            <h4 >Ligue <span style="color: #00ccff;"> (11)9668-988 </span>para qualquer duvida!</h4>
+            
+        
+        </div>
+        
+    </div>
+
+    <footer>
+        <div id="footer_content">
+            <div id="footer_contacts">
+                <img src="assets/Logo.png" alt="logo" class="logo2">
+                <p>É tudo sobre o seu sonho.</p>
+                <div id="footer_social_media">
+                    <a href="#" class="footer-link" id="instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="footer-link" id="facebook">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="" class="footer-link" id="email">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </div>
+                <div id="footer_subscribe">
+                  <p>
+                      Entre com seu e-mail para receber noticías sobre nossas novas soluções
+                  </p>
+                  <div id="input_email">
+                      <input type="text" name="" id="email_ipt">
+                      <button class="button-ipt">
+                          <i class="fa-solid fa-envelope"></i>
+                      </button>
+                  </div>
+              </div>
+            </div>
+            <div id="div-footer-list">
+                <ul class="footer-list">
+                    <li>
+                        <h3> Extensão de atuação </h3>
+                    </li>
+                    <li>
+                        <img src="assets/mapa-do_brasil.png" alt="mapa_do_brasil" class="mapa-br">
+                    </li>
+                    <li class="footer_li">
+                        <a href="./Tela Inicial.html" class="footer-link">Home</a>
+                        <a href="./Tela Calculadora.html" class="footer-link">Calculadora</a>
+                        <a href="./Tela plano de sensores.html" class="footer-link">Planos de sensores</a>
+                    </li>
+                </ul>
+            </div>
+
+            <ul class="footer-list">
+                <li>
+                    <h3>Time Quantum Sensors</h3>
+                </li>
+                <li>
+                    <a href="./Tela Contato.html" class="footer-link">Contato</a>
+                </li>
+                <li>
+                    <a href="./Tela Contato.html" class="footer-link">Trabalhe conosco</a>
+                </li>
+                <li>
+                    <a href="./Tela Quantum.html" class="footer-link">equipe Quantum Sensors</a>
+                </li>
+
+            </ul>
+        </div>
+        <div id="footer_copyright">
+            &#169
+            2023 all rights reserved by Quantum Sensors
+        </div>
+    </footer>
+
+</body>
+
+</html>
+
+

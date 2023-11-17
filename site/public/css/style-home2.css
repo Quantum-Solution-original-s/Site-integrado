@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'inter', sans-serif;
+  box-sizing: border-box;
+  letter-spacing: 1.6px;
+}
+
+body {
+  /* background-image: url(./img/muda-planta.jpg);
+    background-position: center;
+    background-size: cover; */
+  background-color: #F5F5F5;
+  width: 100%;
+}
+
+main {
+  max-width: 1440px;
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.home-txt {
+  font-family: 'inter', sans-serif;
+  margin-top: 100px;
+  /*div*/
+}
+
+.home-txt h2 {
+  font-weight: 400px;
+  font-size: 56px;
+  color: white;
+  line-height: 55px;
+  padding: 15px;
+}
+
+.home {
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  /*main*/
+}
+
+.up {
+  color: #100D40;
+}
+
+.down {
+  color: #100D40;
+}
+
+a {
+  transition: all 0.6s linear;
+}
+
+
+
+footer p {
+  font-family: 'inter' sans-serif;
+  font-weight: 450px;
+  font-size: 15px;
+  line-height: 25px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: justify;
+  padding: 15px;
+}
+
+.h3_home {
+  margin-top: 30px;
+  color: #100D40;
+  font-family: 'inter', sans-serif;
+  font-size: 28px;
+  padding: 10px;
+}
+
+.text-1 {
+  margin-bottom: 45px;
+  border: #9051e700 1px solid;
+  border-radius: 14px;
+  background-color: #eaeaea9c;
+}
+
+.list {
+  padding: 15px;
+  list-style: padding 15px;
+  list-style: none;
+
+}
+
+.nosso_software {
+  margin-bottom: 30px;
+}
+
+#ul {
+  margin-left: 17px;
+  list-style: none;
+  /* text-decoration: none; */
+  font-family: 'inter', sans-serif;
+  line-height: 40px;
+}
+
+li {
+  color: #A701FD;
+}

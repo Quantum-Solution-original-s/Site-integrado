@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Sensor 3</title>
+    <link rel="stylesheet" href="estilo_sensor3.css">
+</head>
+
+<body>
+    
+    <div class="header">
+        <div class="container">
+            <a href="../Tela Inicial/index.html">
+                <img src="./img/Logo.png" alt="logo" class="logo1">
+            </a>
+            <h1 class="logo"></h1>
+            <div class="nav-bar-left">
+                <ul>
+                    <li><a class="a-nav-left" href="../Tela Inicial.html">Home</a></li>
+                    <li><a class="a-nav-left" href="../Tela plano de sensores.html">Planos de sensores</a></li>
+                    <li><a class="a-nav-left" href="../Tela Calculadora.html" target="_blank">Calculadora</a></li>
+                    <li><a class="a-nav-left" href="../Tela Contato.html">Contato</a></li>
+                    <li><a class="a-nav-left" href="../Tela Dashboard/Tela DashBoard.html">Dashboard</a></li>
+                    <li><a class="a-nav-left" href="../Tela Quantum.html">Equipe Quantum</a></li>
+                </ul>
+            </div>
+            <div class="nav-bar-right">
+
+                <a class="a-nav-right" href="../Tela de Login/index.html" target="_blank"> <b>Login</b></a>
+                <button class="button-cadastro"><a href="../Tela de Cadastro/index.html" target="_blank"> <b>Cadastro</b> </a></button>
+
+            </div>
+            <div class="barra_lateral">
+                <i onclick="gerenciarMenu()" class="fa-solid fa-bars" style="color: #e8e1f1;"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTEUDO -->
+    <div class="envoltorio">
+        <div class="container2">
+            <div class="envoltorioE">
+                <div class="empresa">
+                    <div class="fotoEmpresa">
+                        <img class="fotoEmpresa" src="./img/Logo.png" alt="">
+                    </div>
+                    <p class="fonte">
+                    Quantum Sensors
+                    </p> 
+
+                    <p class="estufa">Estufa 1</p>
+                   <p class="fonte">    
+                    <button id="button_sensores" onclick="sensores()">Sensores:</button>
+
+                    <div id="sensores_list"></div>
+                    <button class="sensorButton"> <a href="../sensor1/sensor1.html" rel="noopener noreferrer">Sensor 1</a></button>  <br>
+                    <button class="sensorButton"> <a href="../sensor2/sensor2.html" rel="noopener noreferrer">Sensor 2</a> </button>  <br>
+                    <button class="agora"> <a href="sensor3.html" rel="noopener noreferrer">Sensor 3</a></button> <br>
+                    <button class="sensorButton"> <a href="../FRONT.html" rel="noopener no-referrer"> Tela Inicial</a></button> 
+
+
+                </p>
+                </div>
+            </div>
+            <div class="itens">
+
+                <div class="item item-1" id="grafico1">
+                    <p>
+                        <button class="buttonGrafico" onclick="grafico1()">Temperatura</button>
+                    </p>
+                </div>
+
+                <!-- DIV PARA OS GRAFICOS -->
+                <div class="temperatura" id="Graficos"></div>
+
+                
+                <div class="item item-2" id="grafico2">
+                    <p> 
+                    <button class="buttonGrafico" onclick="grafico2()">Umidade</button>
+                    </p>
+                </div>
+
+                <div class="item item-3" id="grafico3">
+                    <p>
+                   <button class="buttonGrafico" onclick="grafico3()">Média Temp/Umidade</button>
+                    </p>
+                </div>
+                
+
+                <div class="item item-1" id="grafico4">
+                    <p>
+                   <button class="buttonGrafico"  onclick="grafico4()">Temp/Umidade</button>
+                    </p>
+                </div>
+                
+
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <footer>
+        <div id="footer_content">
+            <div id="footer_contacts">
+                <img src="./img/Logo.png" alt="logo" class="logo2">
+                <p>É tudo sobre o seu sonho.</p>
+                <div id="footer_social_media">
+                    <a href="#" class="footer-link" id="instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="footer-link" id="facebook">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="" class="footer-link" id="email">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </div>
+                <div id="footer_subscribe">
+                  <p>
+                      Entre com seu e-mail para receber noticías sobre nossas novas soluções
+                  </p>
+                  <div id="input_email">
+                      <input type="text" name="" id="email_ipt">
+                      <button class="button-ipt">
+                          <i class="fa-solid fa-envelope"></i>
+                      </button>
+                  </div>
+              </div>
+            </div>
+            <div id="div-footer-list">
+                <ul class="footer-list">
+                    <li>
+                        <h3> Extensão de atuação </h3>
+                    </li>
+                    <li>
+                        <img src="./img/mapa-do_brasil.png" alt="mapa_do_brasil" class="mapa-br">
+                    </li>
+                    <li class="footer_li">
+                        <a href="../Tela Inicial/index.html" class="footer-link">Home</a> <br>
+                        <a href="/Site-Institucional-Estatico/Site-Institucional-Estatico/Tela Calculadora/index.html" class="footer-link">Calculadora</a> <br>
+                        <a href="../Plano de sensores/Tela plano de sensores.html" class="footer-link">Planos de sensores</a> <br>
+                    </li>
+                </ul>
+            </div>
+
+            <ul class="footer-list">
+                <li>
+                    <h3>Time Quantum Sensors</h3>
+                </li>
+                <li>
+                    <a href="../Tela Contato/index.html" class="footer-link">Contato</a>
+                </li>
+                <li>
+                    <a href="../Tela Contato/index.html" class="footer-link">Trabalhe conosco</a>
+                </li>
+                <li>
+                    <a href="../tela time quantum nova versão/index.html" class="footer-link">equipe Quantum Sensors</a>
+                </li>
+
+            </ul>
+        </div>
+        <div id="footer_copyright">
+            &#169
+            2023 all rights reserved by Quantum Sensors
+        </div>
+    </footer>
+</body>
+
+</html>
+
+<script>
+
+    function sensore() {
+
+
+    }
+</script>

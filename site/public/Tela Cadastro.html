@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <title>Cadastrar-se</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./css/style-cadastro.css">
+    <script src="script.js"></script>
+    <script src="./js/sessao.js"></script>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="container">
+          <a href="../Tela Inicial/index.html">
+            <img src="assets/Logo.png" alt="logo" class="logo1">
+          </a>
+            <h1 class="logo"></h1>
+            <div class="nav-bar-left">
+                <ul>
+                  <li><a class="a-nav-left" href="./Tela Inicial.html">Home</a></li>
+                  <li><a class="a-nav-left" href="./Tela plano de sensores.html">Planos de sensores</a></li>
+                  <li><a class="a-nav-left" href="./Tela Calculadora.html" target="_blank">Calculadora</a></li>
+                  <li><a class="a-nav-left" href="./Tela Contato.html">Contato</a></li>
+                  <li><a class="a-nav-left" href="./Tela Dashboard/Tela DashBoard.html">Dashboard</a></li>
+                  <li><a class="a-nav-left" href="./Tela Quantum.html">Equipe Quantum</a></li>
+                </ul>
+            </div>
+            <div class="barra_lateral">
+                <i onclick="gerenciarMenu()" class="fa-solid fa-bars" style="color: #e8e1f1;"></i>
+            </div>
+        </div>
+    </div>
+
+    <main>
+      <!-- CADASTRO -->
+  <div class="container-cadastro">
+    <div>
+      <img src="">
+      <h1 class="title-cadastro">Criar conta</h1>
+      <p class="sub-title">Cadastrar-se com:</p>
+
+      <!-- MEIOS DE CADASTRO E IAMGEM -->
+      <div class="metodos-login">
+        <div class="circulo-rede-social">
+          <img class="icon-cadastro-google" src="assets/icons/google.png">
+        </div>
+
+        <div class="circulo-rede-social">
+          <img class="icon-cadastro-linkedin" src="assets/icons/linkedin.png">
+        </div>
+      </div>
+      <p>Ou</p>
+
+      <!-- CADASTRO -->
+      <div class="cadastro-inputs">
+      <p class="title-input">Empresa:</p>
+      <select name="empresas" id="listaEmpresas">
+        <option selected>Selecione uma empresa</option>
+      </select>
+      <p class="title-input">Nome da Empresa: <br>
+        <div class="icons">
+          <img class="img-user" src="./assets/icons/user.png"> <input type="text" class="inputs" id="nome_input" placeholder="Digite o nome da Empresa">
+        </div>
+      </p>
+      
+      <!-- SENHA -->
+      <p class="title-input">Senha: <br>
+      <div class="icons">
+        <img class="img-senha" src="./assets/icons/cadeado-seguro.png"> <input type="password" class="inputs-senha" id="ipt_senha" placeholder="Digite sua senha"> 
+        <i id="btn-senha" onclick="mostrar_senha()" class="bi bi-eye"></i>
+      </div>
+      </p>
+
+      <p class="title-input">Confirmar Senha: <br>
+        <div class="icons">
+          <img class="img-senha" src="imagens/cadeado-seguro.png"> <input type="password" class="inputs-senha" id="confirmacao_senha" placeholder="Confirme sua senha">
+          <i id="btn-confirmar-senha" onclick="mostrar_confirmar_senha()" class="bi bi-eye"></i>
+        </div>
+        <div id="msg_alert" style="margin-top: 8px;"></div>
+      </p>
+
+      <!-- EMAIL -->
+      <p class="title-input">E-mail <br>
+        <div class="icons">
+          <img class="icon-email-input" src="./assets/icons/o-email.png"> <input type="text" class="inputs" id="email_input" placeholder="Digite o email da Empresa">
+        </div>
+      </p>
+
+      <p class="title-input">CNPJ da Empresa <br>
+        <div class="icons">
+          <img class="icon-cnpj-input" src="./assets/icons/iconCnpj.png"> <input type="text" class="inputs" id="cnpj_input" placeholder="Digite o CNPJ da Empresa">
+        </div>
+      </p>
+      <br>
+    <button onclick="cadastrar()" class="acessar-button-style">Cadastrar</button>
+    </div>
+    <p>Ja tem uma conta? clique em <a class="mensagem-cadastro-ou-login" href="./Tela Login.html">logar para acessar sua conta.</a></p>
+    
+  </div>
+</div>
+    </main>
+
+    <footer>
+      <div id="footer_content">
+          <div id="footer_contacts">
+              <img src="assets/Logo.png" alt="logo" class="logo2">
+              <p>É tudo sobre o seu sonho.</p>
+              <div id="footer_social_media">
+                  <a href="#" class="footer-link" id="instagram">
+                      <i class="fa-brands fa-instagram"></i>
+                  </a>
+                  <a href="#" class="footer-link" id="facebook">
+                      <i class="fa-brands fa-facebook"></i>
+                  </a>
+                  <a href="" class="footer-link" id="email">
+                      <i class="fa-solid fa-envelope"></i>
+                  </a>
+              </div>
+              <div id="footer_subscribe">
+                <p>
+                    Entre com seu e-mail para receber noticías sobre nossas novas soluções
+                </p>
+                <div id="input_email">
+                    <input type="text" name="" id="email_ipt">
+                    <button class="button-ipt">
+                        <i class="fa-solid fa-envelope"></i>
+                    </button>
+                </div>
+            </div>
+          </div>
+          <div id="div-footer-list">
+              <ul class="footer-list">
+                  <li>
+                      <h3> Extensão de atuação </h3>
+                  </li>
+                  <li>
+                      <img src="assets/mapa-do_brasil.png" alt="mapa_do_brasil" class="mapa-br">
+                  </li>
+                  <li class="footer_li">
+                      <a href="./Tela Inicial.html" class="footer-link">Home</a>
+                      <a href="./Tela Calculadora.html" class="footer-link">Calculadora</a>
+                      <a href="./Tela plano de sensores.html" class="footer-link">Planos de sensores</a>
+                  </li>
+              </ul>
+          </div>
+
+          <ul class="footer-list">
+              <li>
+                  <h3>Time Quantum Sensors</h3>
+              </li>
+              <li>
+                  <a href="./Tela Contato.html" class="footer-link">Contato</a>
+              </li>
+              <li>
+                  <a href="./Tela Contato.html" class="footer-link">Trabalhe conosco</a>
+              </li>
+              <li>
+                  <a href="./Tela Quantum.html" class="footer-link">equipe Quantum Sensors</a>
+              </li>
+
+          </ul>
+      </div>
+      <div id="footer_copyright">
+          &#169
+          2023 all rights reserved by Quantum Sensors
+      </div>
+  </footer>
+
+
+</body>
+
+</html> 
+<script>
+function mostrar_senha () {
+  var inputPass = document.getElementById('ipt_senha')
+  var btnShowPass = document.getElementById('btn-senha')
+
+  if(inputPass.type === 'password') {
+    inputPass.setAttribute('type', 'text')
+    btnShowPass.classList.replace('bi-eye', 'bi-eye-slash')
+  } else {
+    inputPass.setAttribute('type', 'password')
+    btnShowPass.classList.replace('bi-eye-slash', 'bi-eye')
+  }
+}
+
+function mostrar_confirmar_senha () {
+  var inputPass = document.getElementById('confirmar_senha')
+  var btnShowPass = document.getElementById('btn-confirmar-senha')
+
+  if(inputPass.type === 'password') {
+    inputPass.setAttribute('type', 'text')
+    btnShowPass.classList.replace('bi-eye', 'bi-eye-slash')
+  } else {
+    inputPass.setAttribute('type', 'password')
+    btnShowPass.classList.replace('bi-eye-slash', 'bi-eye')
+  }
+}
+
+</script>
+<script>
+function cadastrar() {
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = nome_input.value;
+    var emailVar = email_input.value;
+    var cnpjVar = cnpj_input.value;
+    var senhaVar = ipt_senha.value;
+    var confirmacaoSenhaVar = confirmacao_senha.value;
+    var empresaVar = listaEmpresas.value
+    if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      cnpjVar == "" ||
+      confirmacaoSenhaVar == "" ||
+      empresaVar == "" 
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para todos os campos em branco)";
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        cnpjServer: cnpjVar,
+        senhaServer: senhaVar,
+        empresaServer: empresaVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            // PAGINA DE LOGIN
+            window.location = "Tela Login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+  function listar() {
+    fetch("/empresas/listar", {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((empresas) => {
+          empresas.forEach((empresa) => {
+            listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+</script>
