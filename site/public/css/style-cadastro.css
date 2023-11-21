@@ -226,8 +226,8 @@ main {
   margin: 0 auto;
   margin-top: 7%;
   margin-bottom: 7%;
-  height: 1000px;
-  width: 573px;
+  height: 1300px;
+  width: 600px;
   background: linear-gradient(#af86e9bd, #6d0fa0e5);
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.445);
   border-radius: 8px;
@@ -342,16 +342,40 @@ input::placeholder {
   border-radius: 20px;
 }
 
+.logradouro-div {
+  width: 454px;
+  /* margin-top: 80px; */
+}
+.logradouro{
+  width: 532px;
+  height: 20px;
+  padding: 25px;
+  border-radius: 20px;
+  border: none;
+  margin-left: 24px;
+}
+.logradouro-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title-input-logradouro {
+  font-size: 19px;
+  /* margin-bottom: 1.2%; */
+  text-align: left;
+  margin: 30px 0 0 25px; 
+}
 .icons-dd {
   display: flex;
-  width: 110px;
+  width: 90px;
   margin: 0 20px 0 0;
   background-color: white;
   border-radius: 20px;
 }
 
 .icons i {
-  margin: 3px 0 0 13px;
+  margin: 3px 0 0 43px;
 
 }
 .img-user {
@@ -368,8 +392,10 @@ input::placeholder {
 }
 
 /* FINAL INPUT USUARIO */
+
+
 .dd_numero {
-  width: 100px;
+  width: 90px;
   border-radius: 20px;
   height: 39px;
   border: none;
@@ -383,7 +409,8 @@ input::placeholder {
   display: flex;
   flex-direction: row;
   margin-top: 15px;
-  margin: 0 16px 0 0;
+  margin: 0 25px 0 0;
+  margin-left: 5px;
 }
 
 
@@ -415,7 +442,7 @@ input::placeholder {
   justify-content: space-evenly;
   justify-content: flex-start;
   flex-direction: row;
-  margin: 0 0 0 0;
+  margin-left: 20px;
 }
 
 .plano-qtdEstufa {
@@ -424,6 +451,7 @@ input::placeholder {
   align-items: center;
   flex-direction: row;
   margin: 0 130px 0 0;
+  margin-left: 20px;
 }
 
 .icons-plano {
@@ -451,10 +479,12 @@ input::placeholder {
   justify-content: space-around;
   justify-content: flex-start;
   column-gap: 40px;
+  margin-left: 10px;
 }
 .container-endereco {
   display: flex;
   flex-direction: row;
+  margin-left: 20px;
 }
 
 .tipo_plano {
@@ -556,6 +586,7 @@ input::placeholder {
   flex-direction: row;
   margin-top: 15px;
   margin: 0 16px 0 0;
+  margin-left: 5px;
   }
 
 .plano {
