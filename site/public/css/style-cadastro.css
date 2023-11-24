@@ -227,7 +227,7 @@ main {
   margin-top: 7%;
   margin-bottom: 7%;
   height: 1300px;
-  width: 600px;
+  width: 630px;
   background: linear-gradient(#af86e9bd, #6d0fa0e5);
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.445);
   border-radius: 8px;
@@ -347,17 +347,24 @@ input::placeholder {
   /* margin-top: 80px; */
 }
 .logradouro{
-  width: 532px;
-  height: 20px;
-  padding: 25px;
   border-radius: 20px;
+  width: 420px;
+  height: 42px;
   border: none;
-  margin-left: 24px;
+  font-size: 18px;
+  outline: none;
+  padding: 0px 0px 0px 11px;
 }
 .logradouro-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  margin-right: 20px;
+}
+
+.bairro-container {
+  display: flex;
+  flex-direction: row;
+  margin-right: 20px;
 }
 
 .title-input-logradouro {
@@ -397,11 +404,10 @@ input::placeholder {
 .dd_numero {
   width: 90px;
   border-radius: 20px;
-  height: 39px;
+  height: 44px;
   border: none;
   font-size: 20px;
   outline: none;
-  margin-top: 4px;
   padding: 0px 0px 0px 25px;
 }
 
@@ -416,12 +422,11 @@ input::placeholder {
 
 .telefone-input {
   border-radius: 20px;
-  width: 600px;
-  height: 39px;
+  width: 454px;
+  height: 42px;
   border: none;
   font-size: 18px;
   outline: none;
-  margin-top: 4px;
   padding: 0px 0px 0px 11px;
 }
 
@@ -432,7 +437,7 @@ input::placeholder {
 .icons-telefone {
   display: flex;
   width: 405px;
-  margin: 0 0 0 0;
+  margin-left: 20px;
   background-color: white;
   border-radius: 20px;
 }
@@ -481,6 +486,24 @@ input::placeholder {
   column-gap: 40px;
   margin-left: 10px;
 }
+
+.title-logradouro {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  justify-content: flex-start;
+  column-gap: 290px;
+  margin-left: 10px;
+}
+
+.title-bairro {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  justify-content: flex-start;
+  column-gap: 355px;
+  margin-left: 10px;
+}
 .container-endereco {
   display: flex;
   flex-direction: row;
@@ -488,25 +511,25 @@ input::placeholder {
 }
 
 .tipo_plano {
-  width: 110px;
   border-radius: 20px;
-  height: 39px;
+  width: 454px;
+  height: 42px;
   border: none;
-  font-size: 20px;
+  font-size: 18px;
   outline: none;
   margin-top: 4px;
-  padding: 0px 0px 0px 5px;
+  padding: 0px 0px 0px 11px;
 }
 
 .estado_option {  
-  width: 100px;
   border-radius: 20px;
-  height: 39px;
+  width: 90px;
+  height: 42px;
   border: none;
-  font-size: 20px;
+  font-size: 18px;
   outline: none;
   margin-top: 4px;
-  padding: 0px 0px 0px 25px;
+  padding: 0px 0px 0px 11px;
 }
 .cidade {
   display: flex;
@@ -515,17 +538,35 @@ input::placeholder {
 }
 
 .cidade_ipt {
-  display: flex;
-  width: 390px;
-  height: 45px;
-  margin: 0 0 0 20px;
-  background-color: white;
   border-radius: 20px;
-  padding: 0 0 0 5px;
+  width: 410px;
+  height: 42px;
   border: none;
+  font-size: 18px;
   outline: none;
+  margin-top: 4px;
+  padding: 0px 0px 0px 11px;
 }
 
+.numero {
+  border-radius: 20px;
+  width: 100px;
+  height: 42px;
+  border: none;
+  font-size: 18px;
+  outline: none;
+  padding: 0px 0px 0px 11px;
+}
+
+.cep {
+  border-radius: 20px;
+  width: 100px;
+  height: 42px;
+  border: none;
+  font-size: 18px;
+  outline: none;
+  padding: 0px 0px 0px 11px;
+}
 /* INPUT SENHA */
 
 .senha-title-input {
@@ -573,7 +614,7 @@ input::placeholder {
 .estufa_numero {
   border-radius: 20px;
   width: 190px;
-  height: 39px;
+  height: 42px;
   border: none;
   font-size: 18px;
   outline: none;

@@ -11,8 +11,6 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./css/style-cadastro.css">
-    <script src="script.js"></script>
-    <script src="./js/sessao.js"></script>
 
 </head>
 
@@ -178,19 +176,36 @@
         </div> 
       </div>
 
-      <div class="logradouro-container">
-        <div class="logradouro-div">
-        <p class="title-input-logradouro">logradouro</p>
-          <img src=""> <input type="text" class="logradouro" id="ipt_cidade" placeholder="Noma da sua Cidade">
-        </div> 
+      <div class="title-logradouro">
+        <p class="title-input"> Logradouro</p>
+        <p class="title-input"> Número</p>
       </div>
       <div class="logradouro-container">
         <div class="logradouro-div">
-        <p class="title-input-logradouro">logradouro</p>
-          <img src=""> <input type="text" class="logradouro" id="ipt_cidade" placeholder="Noma da sua Cidade">
-        </div> 
+          <img src=""> <input type="text" class="logradouro" id="ipt_logradouro" placeholder="Logradouro">
+        </div>
+
+        <div class="ipt_dd">
+          <input type="number" class="numero" id="ipt_numeroLocal" placeholder="N°">
+        </div>
       </div>
 
+
+      <div class="title-bairro">
+        <p class="title-input"> Bairro</p>
+        <p class="title-input">CEP</p>
+      </div>
+
+      <div class="bairro-container">
+
+        <div class="logradouro-div">
+          <img src=""> <input type="text" class="logradouro" id="ipt_bairro" placeholder="Noma da sua Cidade">
+        </div>
+        
+        <div class="ipt_dd">
+          <input type="text" class="cep" id="ipt_cep" placeholder="CEP">
+        </div>
+      </div>
       <br> 
       <br> 
     <button onclick="cadastrar()" class="acessar-button-style">Cadastrar</button>
@@ -310,13 +325,99 @@ function cadastrar() {
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
     var senhaVar = ipt_senha.value
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    var confirmacaoSenhaVar = confirmacao_senha.value;
+    var emailVar = email_input.value
     var cnpjVar = cnpj_input.value
+    var ddVar = ipt_dd.value
+    var telefoneVar = ipt_telefone.value
+    var estufaVar = ipt_estufa.value
+    var planoVar = tipo_plano.value
+
     if (
       nomeVar == "" ||
       senhaVar == "" ||
       confirmacaoSenhaVar == "" ||
-      cnpjVar == ""
+      cnpjVar == "" ||
+      emailVar == "" ||
+      ddVar == "" ||
+      telefoneVar == "" ||
+      estufaVar == "" ||
+      planoVar == "" 
+
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para todos os campos em branco)";
+
+      // finalizarAguardar();
+      return false;
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+        cnpjServer: cnpjVar,
+        ddServer: ddVar,
+        telefoneServer: telefoneVar,
+        estufaServer: estadoVar,
+        planoServer: planoVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          endereco() 
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "Tela Login.html";
+          }, "2000");
+
+          limparFormulario();
+          // finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        // finalizarAguardar();
+      });
+
+    return false;
+  }
+
+  function endereco() {
+    //Recupere o valor da nova input pelo nome do id
+    var estadoVar = estado.value
+    var cidadeVar = ipt_cidade.value
+    var logradouroVar = ipt_logradouro.value
+    var localVar = ipt_numeroLocal.value
+    var bairroVar = ipt_bairro.value
+    var cepVar = ipt_cep.value
+
+    if (
+      estadoVar == "" ||
+      cidadeVar == "" ||
+      logradouroVar == "" ||
+      localVar == "" ||
+      bairroVar == "" ||
+      cepVar == ""
+
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -337,10 +438,12 @@ function cadastrar() {
       body: JSON.stringify({
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar,
-        cnpjServer: cnpjVar
+        estadoServer: estadoVar,
+        cidadeServer: cidadeVar,
+        logradouroServer: logradouroVar,
+        localServer: localVar,
+        bairroServer: bairroVar,
+        cepServer: cepVar
       }),
     })
       .then(function (resposta) {
@@ -366,7 +469,6 @@ function cadastrar() {
         console.log(`#ERRO: ${resposta}`);
         // finalizarAguardar();
       });
-
-    return false;
+      return false;
   }
   </script>
