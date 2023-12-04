@@ -25,6 +25,9 @@ main {
     align-items: center;
 }
 
+.esconder {
+    display: none;
+}
 
 footer {
     width: 100%;

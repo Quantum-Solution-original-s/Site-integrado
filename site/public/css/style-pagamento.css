@@ -23,6 +23,9 @@ main {
     margin: 0 auto;
 }
 
+.esconder {
+    display: none;
+}
 
 footer {
     width: 100%;

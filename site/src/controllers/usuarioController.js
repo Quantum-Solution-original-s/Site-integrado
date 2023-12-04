@@ -1,7 +1,7 @@
 var usuarioModel = require("../models/usuarioModel");
 var aquarioModel = require("../models/aquarioModel");
 
-function autenticar(req, res) {
+function entrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
 
@@ -10,31 +10,17 @@ function autenticar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
-
-        usuarioModel.autenticar(email, senha)
+        
+        usuarioModel.entrar(email, senha)
             .then(
-                function (resultadoAutenticar) {
-                    console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
-                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
+                function (resultado) {
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
 
-                    if (resultadoAutenticar.length == 1) {
-                        console.log(resultadoAutenticar);
-
-                        aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
-                            .then((resultadoAquarios) => {
-                                if (resultadoAquarios.length > 0) {
-                                    res.json({
-                                        id: resultadoAutenticar[0].id,
-                                        email: resultadoAutenticar[0].email,
-                                        nome: resultadoAutenticar[0].nome,
-                                        senha: resultadoAutenticar[0].senha,
-                                        aquarios: resultadoAquarios
-                                    });
-                                } else {
-                                    res.status(204).json({ aquarios: [] });
-                                }
-                            })
-                    } else if (resultadoAutenticar.length == 0) {
+                    if (resultado.length == 1) {
+                        console.log(resultado);
+                        res.json(resultado[0]);
+                    } else if (resultado.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {
                         res.status(403).send("Mais de um usuário com o mesmo login e senha!");
@@ -52,31 +38,18 @@ function autenticar(req, res) {
 }
 
 
-//         nomeServer: nomeVar,
-//         emailServer: emailVar,
-//         senhaServer: senhaVar,
-//         cnpjServer: cnpjVar,
-//         ddServer: ddVar,
-//         telefoneServer: telefoneVar,
-//         estufaServer: estadoVar,
-//         planoServer: planoVar,
-//         estadoServer: estadoVar,
-//         cidadeServer: cidadeVar,
-//         logradouroServer: logradouroVar,
-//         localServer: localVar,
-//         bairroServer: bairroVar,
-//         cepServer: cepVar
-
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
     var cnpj = req.body.cnpjServer;
+    var tabaco = req.body.tabacoServer;
     var dd = req.body.ddServer;
     var telefone = req.body.telefoneServer;
     var estufa = req.body.estufaServer;
     var plano = req.body.planoServer;
+    // var fkEndereco = req.body.fkEndereco
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -87,7 +60,9 @@ function cadastrar(req, res) {
         res.status(400).send("Sua senha está undefined!");
     } else if (cnpj == undefined) {
         res.status(400).send("Seu cnpj está undefined!");
-    } else if (dd == undefined) {
+    } else if (tabaco == undefined) {
+        res.status(400).send("Seu tabaco está undefined!");
+    }else if (dd == undefined) {
         res.status(400).send("Seu DD está undefined!")
     } else if (telefone == undefined) {
         res.status(400).send("Seu telefone está undefined!");
@@ -98,7 +73,7 @@ function cadastrar(req, res) {
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar, usuarioModel.endereco(nome, email, senha, cnpj, dd, telefone, estufa, plano)
+            usuarioModel.cadastrar(cnpj, nome, email, senha, dd, telefone, plano, tabaco, estufa)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -116,25 +91,29 @@ function cadastrar(req, res) {
     }
 }
 
-function endereco() {
-    var estado = req.body.estadoServer
+function endereco(req, res) {
+    var nome = req.body.nomeServer;
+    var estado = req.body.estadoServer;
+    var UF = req.body.UFServer
     var cidade = req.body.cidadeServer;
     var logradouro = req.body.logradouroServer;
-    var local = req.body.localServer;
+    var numerolocal = req.body.numeroLocalServer;
     var bairro = req.body.bairroServer;
     var cep = req.body.cepServer
 
 
-    if (plano == undefined) {
-        res.status(400).send("Seu plano está undefined!");
+    if (nome == undefined) {
+        res.status(400).send("Seu nome está undefined!")
     } else if (estado == undefined) {
         res.status(400).send("Seu estado está undefined!")
+    } else if (UF == undefined) {
+        res.status(400).send("Seu UF está undefined!")
     } else if (cidade == undefined) {
         res.status(400).send("Seu cidade está undefined!");
     } else if (logradouro == undefined) {
         res.status(400).send("Sua logradouro está undefined!");
-    } else if (local == undefined) {
-        res.status(400).send("Seu local está undefined!");
+    } else if (numerolocal == undefined) {
+        res.status(400).send("Seu numerolocal está undefined!");
     } else if (bairro == undefined) {
         res.status(400).send("Seu bairro está undefined!")
     } else if (cep == undefined) {
@@ -142,7 +121,7 @@ function endereco() {
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.endereco(estado, cidade, logradouro, local, bairro, cep)
+        usuarioModel.endereco(nome, estado, UF, cidade, logradouro, numerolocal, bairro, cep)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -160,8 +139,25 @@ function endereco() {
     }
 }
 
+function validacao(req, res) {
+    usuarioModel.validacao()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
 module.exports = {
-    autenticar,
+    entrar,
     cadastrar,
-    endereco
+    endereco,
+    validacao
 }

@@ -16,27 +16,31 @@
 
 <body>
 
-    <div class="header">
-        <div class="container">
-          <a href="../Tela Inicial/index.html">
-            <img src="assets/Logo.png" alt="logo" class="logo1">
-          </a>
-            <h1 class="logo"></h1>
-            <div class="nav-bar-left">
-                <ul>
-                  <li><a class="a-nav-left" href="./Tela Inicial.html">Home</a></li>
-                  <li><a class="a-nav-left" href="./Tela plano de sensores.html">Planos de sensores</a></li>
-                  <li><a class="a-nav-left" href="./Tela Calculadora.html" target="_blank">Calculadora</a></li>
-                  <li><a class="a-nav-left" href="./Tela Contato.html">Contato</a></li>
-                  <li><a class="a-nav-left" href="./Tela Dashboard/Tela DashBoard.html">Dashboard</a></li>
-                  <li><a class="a-nav-left" href="./Tela Quantum.html">Equipe Quantum</a></li>
-                </ul>
-            </div>
-            <div class="barra_lateral">
-                <i onclick="gerenciarMenu()" class="fa-solid fa-bars" style="color: #e8e1f1;"></i>
-            </div>
+  <div class="header">
+    <div class="container">
+      <a href="./Tela Inicial.html">
+        <img src="assets/Logo.png" alt="logo" class="logo1">
+      </a>
+        <h1 class="logo"></h1>
+        <div class="nav-bar-left">
+            <ul>
+                <li><a class="a-nav-left" href="./index.html">Home</a></li>
+                <li><a class="a-nav-left" href="./Tela plano de sensores.html">Planos de sensores</a></li>
+                <li><a class="a-nav-left" href="./Tela Calculadora.html" target="_blank">Calculadora</a></li>
+                <li><a class="a-nav-left" href="./Tela Contato.html">Contato</a></li>
+                <li ><a  id="dashBoard" class="a-nav-left" href="./Tela Dashboard/Tela DashBoard.html">Dashboard</a></li>
+                <li><a class="a-nav-left" href="./Tela Quantum.html">Equipe Quantum</a></li>
+            </ul>
+        </div>
+        <div class="nav-bar-right">
+
+            <img id="logo" src="assets/Logo.png" class="logo1">
+        </div>
+        <div class="barra_lateral">
+            <i onclick="gerenciarMenu()" class="fa-solid fa-bars" style="color: #e8e1f1;"></i>
         </div>
     </div>
+</div>
 
     <main>
       <!-- CADASTRO -->
@@ -97,6 +101,12 @@
         </div>
       </p>
 
+      <p class="title-input">Tipo Tabaco <br>
+        <div class="icons">
+          <input type="text" class="inputs" id="tabaco_ipt" placeholder="Digite o tipo de Tabaco">
+        </div>
+      </p>
+
 
       <!-- TELEFONE -->
       <div class="telefone-title">
@@ -137,11 +147,11 @@
 
       <!-- ENDERECO -->
       <div class="title-endereco">
+        <p class="title-input"> UF</p>
         <p class="title-input"> Estado</p>
-        <p class="title-input"> Cidade</p>
       </div>
       <div class="container-endereco">
-        <select class="estado_option" id="estado">
+        <select class="estado_option" id="UF">
           <option value="AC">AC</option>
           <option value="AL">AL</option>
           <option value="AP">AP</option>
@@ -171,10 +181,18 @@
           <option value="DF">DF</option>
         </select>
 
-        <div class="cidade">
-          <img src=""> <input type="text" class="cidade_ipt" id="ipt_cidade" placeholder="Noma da sua Cidade">
-        </div> 
+        <div class="estado">
+          <input type="text" class="estado_ipt" id="ipt_estado" placeholder="Seu Estado">
+         </div>    
       </div>
+
+      <div class="title-cidade">
+        <p class="title-input"> Cidade</p>
+      </div>
+
+      <div class="cidade">
+       <input type="text" class="cidade_ipt" id="ipt_cidade" placeholder="Noma da sua Cidade">
+      </div> 
 
       <div class="title-logradouro">
         <p class="title-input"> Logradouro</p>
@@ -206,9 +224,13 @@
           <input type="text" class="cep" id="ipt_cep" placeholder="CEP">
         </div>
       </div>
+      <p>Já tem uma conta?
+        <a class="fazer-login" href="./Login.html"> Faça seu Login</a>
+      </p>
+
       <br> 
       <br> 
-    <button onclick="cadastrar()" class="acessar-button-style">Cadastrar</button>
+    <button onclick="endereco(), cadastrar()" class="acessar-button-style">Cadastrar</button>
     </div>
     <!-- <span class="mensagem-cadastro">Ja tem uma conta? clique em <a class="mensagem-cadastro-ou-login" href="./Tela Login.html">logar para acessar sua conta.</a></span> -->
     
@@ -317,44 +339,38 @@ function mostrar_confirmar_senha () {
 
 
 
-</script>
-<script>
-
-function cadastrar() {
+function endereco() {
     //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
-    var senhaVar = ipt_senha.value
-    var confirmacaoSenhaVar = confirmacao_senha.value;
-    var emailVar = email_input.value
-    var cnpjVar = cnpj_input.value
-    var ddVar = ipt_dd.value
-    var telefoneVar = ipt_telefone.value
-    var estufaVar = ipt_estufa.value
-    var planoVar = tipo_plano.value
+    var estadoVar = ipt_estado.value
+    var UFVar = UF.value
+    var cidadeVar = ipt_cidade.value
+    var logradouroVar = ipt_logradouro.value
+    var numeroLocalVar = ipt_numeroLocal.value
+    var bairroVar = ipt_bairro.value
+    var cepVar = ipt_cep.value
 
     if (
       nomeVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      cnpjVar == "" ||
-      emailVar == "" ||
-      ddVar == "" ||
-      telefoneVar == "" ||
-      estufaVar == "" ||
-      planoVar == "" 
+      estadoVar == "" ||
+      UFVar == "" ||
+      cidadeVar == "" ||
+      logradouroVar == "" ||
+      numeroLocalVar == "" ||
+      bairroVar == "" ||
+      cepVar == ""
 
     ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+      console.log('erro')
 
       // finalizarAguardar();
       return false;
+    } else {
+
     }
 
     // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
+    fetch("/usuarios/endereco", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -363,112 +379,177 @@ function cadastrar() {
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar,
-        cnpjServer: cnpjVar,
-        ddServer: ddVar,
-        telefoneServer: telefoneVar,
-        estufaServer: estadoVar,
-        planoServer: planoVar,
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-          cardErro.style.display = "block";
-
-          endereco() 
-
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-          setTimeout(() => {
-            window.location = "Tela Login.html";
-          }, "2000");
-
-          limparFormulario();
-          // finalizarAguardar();
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
-        }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        // finalizarAguardar();
-      });
-
-    return false;
-  }
-
-  function endereco() {
-    //Recupere o valor da nova input pelo nome do id
-    var estadoVar = estado.value
-    var cidadeVar = ipt_cidade.value
-    var logradouroVar = ipt_logradouro.value
-    var localVar = ipt_numeroLocal.value
-    var bairroVar = ipt_bairro.value
-    var cepVar = ipt_cep.value
-
-    if (
-      estadoVar == "" ||
-      cidadeVar == "" ||
-      logradouroVar == "" ||
-      localVar == "" ||
-      bairroVar == "" ||
-      cepVar == ""
-
-    ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-
-      // finalizarAguardar();
-      return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
-    }
-
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
         estadoServer: estadoVar,
+        UFServer: UFVar,
         cidadeServer: cidadeVar,
         logradouroServer: logradouroVar,
-        localServer: localVar,
+        numeroLocalServer: numeroLocalVar,
         bairroServer: bairroVar,
         cepServer: cepVar
       }),
     })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
+    .then(function (resposta) {
+      console.log("resposta: ", resposta);
 
-        if (resposta.ok) {
-          cardErro.style.display = "block";
+      if (resposta.ok) {
+ 
+          console.log("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-          setTimeout(() => {
-            window.location = "Tela Login.html";
-          }, "2000");
-
-          limparFormulario();
-          // finalizarAguardar();
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
-        }
-      })
+      } else {
+        throw "Houve um erro ao tentar realizar o cadastro!";
+      }
+    })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
         // finalizarAguardar();
       });
       return false;
   }
+
+
+var idEndereco = 1
+
+function cadastrar() {
+
+  //Recupere o valor da nova input pelo nome do id
+  // Agora vá para o método fetch logo abaixo
+  var nomeVar = nome_input.value;
+  var senhaVar = ipt_senha.value
+  var confirmacaoSenhaVar = confirmacao_senha.value;
+  var emailVar = email_input.value
+  var cnpjVar = Number(cnpj_input.value)
+  var tabacovar = tabaco_ipt.value
+  var ddVar = Number(ipt_dd.value)
+  var telefoneVar = Number(ipt_telefone.value)
+  var estufaVar = Number(ipt_estufa.value)
+  var planoVar = tipo_plano.value
+
+
+  if (
+    nomeVar == "" ||
+    senhaVar == "" ||
+    confirmacaoSenhaVar == "" ||
+    cnpjVar == "" ||
+    tabacovar == "" ||
+    emailVar == "" ||
+    ddVar == "" ||
+    telefoneVar == "" ||
+    estufaVar == "" ||
+    planoVar == "" 
+
+  ) {
+  
+      console.log("(Mensagem de erro para todos os campos em branco)")
+
+    // finalizarAguardar();
+    return false;
+  }
+
+  // Enviando o valor da nova input
+  fetch("/usuarios/cadastrar", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      // crie um atributo que recebe o valor recuperado aqui
+      // Agora vá para o arquivo routes/usuario.js
+      nomeServer: nomeVar,
+      emailServer: emailVar,
+      senhaServer: senhaVar,
+      cnpjServer: cnpjVar,
+      tabacoServer: tabacovar,
+      ddServer: ddVar,
+      telefoneServer: telefoneVar,
+      estufaServer: estufaVar,
+      planoServer: planoVar,
+      // fkEndereco: idEndereco
+    }),
+  })
+  .then(function (resposta) {
+    console.log("ESTOU NO THEN DO entrar()!")
+
+    if (resposta.ok) {
+        console.log(resposta);
+
+        setTimeout(function () {
+                window.location = "Login.html";
+            }, 2000); // apenas para exibir o loading
+
+
+    } else {
+
+        console.log("Houve um erro ao tentar realizar o login!");
+
+        resposta.text().then(texto => {
+            console.error(texto);
+        });
+    }
+
+})
+    .then(function (resposta) {
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
+ 
+          console.log("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+
+          
+          setTimeout(function () {
+              window.location = "Login.html";
+          }, 2000); // apenas para exibir o loading
+
+      } else {
+        throw "Houve um erro ao tentar realizar o cadastro!";
+      }
+    })
+
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+      // finalizarAguardar();
+    });
+
+  return false;
+}
+
+var idEmpresa = sessionStorage.ID_EMPRESA
+  validacao()
+
+  
+function validacao() {
+    var dashboard = document.getElementById("dashBoard")
+    var logo = document.getElementById("logo")
+
+  if (idEmpresa == undefined) {
+    dashboard.classList.add('esconder')
+
+    } else {
+
+        fetch("/usuarios/validacao", {
+            method: 'GET'
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    console.log("nenhuma resposta encontrada")
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    dashboard.classList.remove('esconder')
+              
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+
+        });
+      }
+
+    }
+  
   </script>

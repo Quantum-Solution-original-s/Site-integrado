@@ -446,3 +446,7 @@ h3 {
 main {
   margin: 500px;
 }
+
+.esconder {
+  display: none;
+}

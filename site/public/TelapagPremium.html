@@ -15,25 +15,26 @@
 <body>
     <div class="header">
         <div class="container">
-            <a href="../Tela Inicial/index.html">
-                <img src="./img/Logo.png" alt="logo" class="logo1">
-            </a>
+          <a href="./Tela Inicial.html">
+            <img src="assets/Logo.png" alt="logo" class="logo1">
+          </a>
             <h1 class="logo"></h1>
             <div class="nav-bar-left">
                 <ul>
-                    <li><a class="a-nav-left" href="./Tela Inicial.html">Home</a></li>
+                    <li><a class="a-nav-left" href="./index.html">Home</a></li>
                     <li><a class="a-nav-left" href="./Tela plano de sensores.html">Planos de sensores</a></li>
                     <li><a class="a-nav-left" href="./Tela Calculadora.html" target="_blank">Calculadora</a></li>
                     <li><a class="a-nav-left" href="./Tela Contato.html">Contato</a></li>
-                    <li><a class="a-nav-left" href="./Tela Dashboard/Tela DashBoard.html">Dashboard</a></li>
+                    <li ><a  id="dashBoard" class="a-nav-left" href="./Tela Dashboard/Tela DashBoard.html">Dashboard</a></li>
                     <li><a class="a-nav-left" href="./Tela Quantum.html">Equipe Quantum</a></li>
                 </ul>
             </div>
             <div class="nav-bar-right">
 
-                <a class="a-nav-right" href="#"> <b>Login</b></a>
-                <button class="button-cadastro"><a href="#"> <b>Cadastro</b> </a></button>
+                <a id="login" class="a-nav-right esconder" href="./Login.html" > <b>Login</b></a>
+                <a id="cadastro" class="esconder" href="./Tela Cadastro.html" > <button class="button-cadastro">  <b>Cadastro</b> </button></a>
 
+                <img id="logo" src="assets/Logo.png" class="logo1">
             </div>
             <div class="barra_lateral">
                 <i onclick="gerenciarMenu()" class="fa-solid fa-bars" style="color: #e8e1f1;"></i>
@@ -194,3 +195,54 @@
 </body>
 
 </html>
+
+<script>
+    var idEmpresa = sessionStorage.ID_EMPRESA
+  validacao()
+
+  
+
+  function validacao() {
+    var dashboard = document.getElementById("dashBoard")
+    var login = document.getElementById("login")
+    var cadastro = document.getElementById("cadastro")
+    var logo = document.getElementById("logo")
+
+  if (idEmpresa == undefined) {
+    dashboard.classList.add('esconder')
+    login.classList.remove('esconder')
+    cadastro.classList.remove('esconder')
+    logo.classList.add('esconder')
+
+    } else {
+
+        fetch("/usuarios/validacao", {
+            method: 'GET'
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    console.log("nenhuma resposta encontrada")
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    dashboard.classList.remove('esconder')
+                    login.classList.add('esconder')
+                    cadastro.classList.add('esconder')
+                    logo.classList.remove('esconder')
+              
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+
+        });
+      }
+
+    }
+</script>

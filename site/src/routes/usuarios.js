@@ -9,11 +9,15 @@ router.post("/cadastrar", function (req, res) {
 })
 
 router.post("/autenticar", function (req, res) {
-    usuarioController.autenticar(req, res);
+    usuarioController.entrar(req, res);
 });
 
 router.post("/endereco", function(req, res){
     usuarioController.endereco(req,res);
 })
+
+router.get("/validacao", function (req, res) {
+    usuarioController.validacao(req, res);
+});
 
 module.exports = router;

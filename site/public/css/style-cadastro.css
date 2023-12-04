@@ -35,6 +35,10 @@ main {
   padding: 0 2rem;
 }
 
+.esconder {
+  display: none;
+}
+
 .header .container {
   width: 90%;
   max-width: 1440px;
@@ -226,13 +230,13 @@ main {
   margin: 0 auto;
   margin-top: 7%;
   margin-bottom: 7%;
-  height: 1300px;
+  height: 1450px;
   width: 630px;
   background: linear-gradient(#af86e9bd, #6d0fa0e5);
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.445);
   border-radius: 8px;
   color: white;
-  
+
 }
 
 .title-cadastro {
@@ -346,7 +350,8 @@ input::placeholder {
   width: 454px;
   /* margin-top: 80px; */
 }
-.logradouro{
+
+.logradouro {
   border-radius: 20px;
   width: 420px;
   height: 42px;
@@ -355,6 +360,7 @@ input::placeholder {
   outline: none;
   padding: 0px 0px 0px 11px;
 }
+
 .logradouro-container {
   display: flex;
   flex-direction: row;
@@ -371,8 +377,9 @@ input::placeholder {
   font-size: 19px;
   /* margin-bottom: 1.2%; */
   text-align: left;
-  margin: 30px 0 0 25px; 
+  margin: 30px 0 0 25px;
 }
+
 .icons-dd {
   display: flex;
   width: 90px;
@@ -385,6 +392,7 @@ input::placeholder {
   margin: 3px 0 0 43px;
 
 }
+
 .img-user {
   width: 30px;
   height: 30px;
@@ -483,6 +491,15 @@ input::placeholder {
   flex-direction: row;
   justify-content: space-around;
   justify-content: flex-start;
+  column-gap: 70px;
+  margin-left: 10px;
+}
+
+.title-cidade {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  justify-content: flex-start;
   column-gap: 40px;
   margin-left: 10px;
 }
@@ -504,6 +521,7 @@ input::placeholder {
   column-gap: 355px;
   margin-left: 10px;
 }
+
 .container-endereco {
   display: flex;
   flex-direction: row;
@@ -521,7 +539,7 @@ input::placeholder {
   padding: 0px 0px 0px 11px;
 }
 
-.estado_option {  
+.estado_option {
   border-radius: 20px;
   width: 90px;
   height: 42px;
@@ -531,13 +549,32 @@ input::placeholder {
   margin-top: 4px;
   padding: 0px 0px 0px 11px;
 }
+
 .cidade {
+  display: flex;
+  flex-direction: row;
+  margin-left: 21px;
+}
+
+.estado {
   display: flex;
   flex-direction: row;
   margin-left: 30px;
 }
 
 .cidade_ipt {
+  border-radius: 20px;
+  width: 525px;
+  height: 42px;
+  border: none;
+  font-size: 18px;
+  outline: none;
+  margin-top: 4px;
+  margin-right: 20px;
+  padding: 0px 0px 0px 11px;
+}
+
+.estado_ipt {
   border-radius: 20px;
   width: 410px;
   height: 42px;
@@ -567,6 +604,7 @@ input::placeholder {
   outline: none;
   padding: 0px 0px 0px 11px;
 }
+
 /* INPUT SENHA */
 
 .senha-title-input {
@@ -628,10 +666,10 @@ input::placeholder {
   margin-top: 15px;
   margin: 0 16px 0 0;
   margin-left: 5px;
-  }
+}
 
 .plano {
-    margin-left: 75px;
+  margin-left: 75px;
 }
 
 
@@ -652,7 +690,8 @@ input::placeholder {
 .mensagem-cadastro-ou-login:active {
   color: #7632d5;
 }
-.mensagem-cadastro{
+
+.mensagem-cadastro {
   margin: 0 0 40px 0;
 }
 
@@ -683,6 +722,23 @@ div i {
   margin-right: 5%;
   margin: 5px 16px 0 0px;
   color: black;
+}
+
+.fazer-login {
+  color: white;
+  text-decoration: none;
+  transition: all 0.4s;
+}
+
+.fazer-login:hover {
+  color: rgb(172, 117, 221);
+  transition: all 0.4s;
+}
+
+.fazer-login:active {
+  color: #7632d5;
+  font-weight: bold;
+  transition: all 0.4s;
 }
 
 footer {

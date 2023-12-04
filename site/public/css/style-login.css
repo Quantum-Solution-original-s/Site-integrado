@@ -649,10 +649,14 @@ h3 {
 }
 
 .img-lateral {
-  width: 380px;
-  height: 531px;
-  margin-left: 78px;
+  width: 400px;
+  height: 551px;
+  margin-left: 50px;
   border-radius: 0 8px 8px 0;
+}
+
+.esconder {
+  display: none;
 }
 
 .acessar-button-style {
@@ -679,14 +683,6 @@ h3 {
   text-decoration: none;
 }
 
-.senha-recuperar:hover {
-  color: rgb(172, 117, 221);
-}
-
-.senha-recuperar:active {
-  color: #7c79e2;
-  font-weight: bold;
-}
 
 .fazer-cadastro {
   color: white;
