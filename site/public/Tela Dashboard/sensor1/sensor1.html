@@ -23,12 +23,12 @@
             <h1 class="logo"></h1>
             <div class="nav-bar-left">
                 <ul>
-                    <li><a class="a-nav-left" href="../index.html">Home</a></li>
-                    <li><a class="a-nav-left" href="../Tela plano de sensores.html">Planos de sensores</a></li>
-                    <li><a class="a-nav-left" href="../Tela Calculadora.html" target="_blank">Calculadora</a></li>
-                    <li><a class="a-nav-left" href="../Tela Contato.html">Contato</a></li>
-                    <li><a class="a-nav-left" href="../Tela Dashboard/Tela DashBoard.html">Dashboard</a></li>
-                    <li><a class="a-nav-left" href="../Tela Quantum.html">Equipe Quantum</a></li>
+                    <li><a id="home" class="a-nav-left" href="./index.html">Home</a></li>
+                    <li><a id="plano" class="a-nav-left" href="./Tela plano de sensores.html">Planos de sensores</a></li>
+                    <li><a id="calculadora" class="a-nav-left" href="./Tela Calculadora.html" target="_blank">Calculadora</a></li>
+                    <li><a class="a-nav-left" href="./Tela Contato.html">Contato</a></li>
+                    <li><a class="a-nav-left" href="./Tela Quantum.html">Equipe Quantum</a></li>
+                    <li ><a  id="dashBoard" class="a-nav-left" href="./Tela Dashboard/Tela DashBoard.html">Dashboard</a></li>
                 </ul>
             </div>
             <div class="nav-bar-right">
@@ -68,7 +68,22 @@
                 </p>
                 </div>
             </div>
+
+            
             <div class="itens">
+
+                <div class="mensagem-alerta">
+                    <div class="alert-dashboard">
+                        <p class="text-alert">Temperatura</p> 
+                        <label>Temperatura está com alteraçao no <a href="../Tela Dashboard/sensor1/sensor1.html"> Sensor 1</a></label>
+                    </div>
+                    <div class="alert-dashboard">
+                        <p class="text-alert">Umidade</p> 
+                        <label>Não há alteração em Umidade</label>
+                    </div>
+                </div>
+                
+                <div class="cardsGraficos"> 
 
                 <div class="item item-1" id="grafico1">
                     <p>
@@ -82,23 +97,24 @@
                 
                 <div class="item item-2" id="grafico2">
                     <p> 
-                    <!-- <button class="buttonGrafico" onclick="grafico2()">Umidade</button> -->
+                    <button class="buttonGrafico" onclick="grafico2()">Umidade</button>
                     </p>
                 </div>
 
                 <div class="item item-3" id="grafico3">
                     <p>
-                   <!-- <button class="buttonGrafico" onclick="grafico3()">Média Temp/Umidade</button> -->
+                   <button class="buttonGrafico" onclick="grafico3()">Média Temp/Umidade</button>
                     </p>
                 </div>
                 
 
                 <div class="item item-1" id="grafico4">
                     <p>
-                   <!-- <button class="buttonGrafico"  onclick="grafico4()">Temp/Umidade</button> -->
+                   <button class="buttonGrafico"  onclick="grafico4()">Temp/Umidade</button>
                     </p>
                 </div>
                 
+                </div>
 
                 </div>
             </div>
@@ -173,4 +189,57 @@
 </body>
 
 </html>
+
+<script>
+
+    
+var idEmpresa = sessionStorage.ID_EMPRESA
+  validacao()
+
+  
+
+  function validacao() {
+    var dashboard = document.getElementById("dashBoard")
+    var home = document.getElementById("home")
+    var plano = document.getElementById("plano")
+    var calculadora = document.getElementById("calculadora")
+
+  if (idEmpresa == undefined) {
+    dashboard.classList.add('esconder')
+    home.classList.remove('esconder')
+    plano.classList.remove('esconder')
+    calculadora.classList.remove('esconder')
+
+    } else {
+
+        fetch("/usuarios/validacao", {
+            method: 'GET'
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    console.log("nenhuma resposta encontrada")
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    dashboard.classList.remove('esconder')
+                    home.classList.add('esconder')
+                    plano.classList.add('esconder')
+                    calculadora.classList.add('esconder')
+              
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+
+        });
+      }
+
+    }
+</script>
 

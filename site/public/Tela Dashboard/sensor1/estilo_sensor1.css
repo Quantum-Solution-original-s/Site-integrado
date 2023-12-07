@@ -582,9 +582,8 @@ option {
     flex-direction: column;
     padding: 20px;
     flex-wrap: wrap;
-    align-content: space-evenly;
-    justify-content: space-evenly;
-
+    align-content: space-around;
+    justify-content: center;
 }
 
 .item p {
@@ -596,21 +595,34 @@ option {
 
 .item {
     padding: 30px;
-    width: 300px;
-    height: 300px;
+    width: 180px;
+    height: 180px;
     background-color: rgb(170, 169, 169);
     /* border: 1px solid black; */
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: row;
+}
+
+.cardsGraficos {
+    width: 100%;
+    height: 500px;
+    /* border: 10px solid black; */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
 }
 
 .buttonGrafico {
     background-color: transparent;
     font-weight: bold;
     border: none;
-    font-size: 25px;
+    font-size: 18px;
     justify-content: center;
     align-items: center;
 }
@@ -643,4 +655,33 @@ option {
 
 #grafico1 {
     margin-left: 4px;
+}
+
+.alert-dashboard p, label{
+    display: flex;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    font-size: 12px;
+}
+.alert-dashboard :hover{
+    cursor: pointer;
+    color: #100D40;
+}
+
+.alert-dashboard {
+    background-color: white;
+    width: 350px;
+    margin: 0 0 0 40px;
+    border-radius: 10px;
+}
+
+.mensagem-alerta {
+    display: flex;
+    justify-content: center;
+}
+
+.alert-dashboard a {
+    color: red;
+    margin: 0 0 0 10px;
+    font-weight: bold
 }

@@ -585,33 +585,7 @@ option {
     display: flex;
 }
 
-.alert-dashboard p, label{
-    display: flex;
-    color: rgb(0, 0, 0);
-    padding: 10px;
-    font-size: 17px;
-}
-.alert-dashboard :hover{
-    cursor: pointer;
-    color: #100D40;
-}
 
-.alert-dashboard {
-    background-color: white;
-    width: 500px;
-    margin: 0 0 0 40px;
-    border-radius: 10px;
-}
-
-.mensagem-alerta {
-    display: flex;
-}
-
-.alert-dashboard a {
-    color: red;
-    margin: 0 0 0 10px;
-    font-weight: bold
-}
 .itens {
     width: 100%;
     height: 700px;
@@ -686,3 +660,7 @@ section {
     border: 1px transparent solid;
     border-radius: 20px;
 }
+
+.esconder {
+    display: none;
+  }

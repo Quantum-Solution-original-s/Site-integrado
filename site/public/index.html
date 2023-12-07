@@ -25,12 +25,12 @@
             <h1 class="logo"></h1>
             <div class="nav-bar-left">
                 <ul>
-                    <li><a class="a-nav-left" href="./index.html">Home</a></li>
-                    <li><a class="a-nav-left" href="./Tela plano de sensores.html">Planos de sensores</a></li>
-                    <li><a class="a-nav-left" href="./Tela Calculadora.html" target="_blank">Calculadora</a></li>
+                    <li><a id="home" class="a-nav-left" href="./index.html">Home</a></li>
+                    <li><a id="plano" class="a-nav-left" href="./Tela plano de sensores.html">Planos de sensores</a></li>
+                    <li><a id="calculadora" class="a-nav-left" href="./Tela Calculadora.html" target="_blank">Calculadora</a></li>
                     <li><a class="a-nav-left" href="./Tela Contato.html">Contato</a></li>
-                    <li ><a  id="dashBoard" class="a-nav-left" href="./Tela Dashboard/Tela DashBoard.html">Dashboard</a></li>
                     <li><a class="a-nav-left" href="./Tela Quantum.html">Equipe Quantum</a></li>
+                    <li ><a  id="dashBoard" class="a-nav-left" href="./Tela Dashboard/Tela DashBoard.html">Dashboard</a></li>
                 </ul>
             </div>
             <div class="nav-bar-right">
@@ -38,7 +38,7 @@
                 <a id="login" class="a-nav-right esconder" href="./Login.html" > <b>Login</b></a>
                 <a id="cadastro" class="esconder" href="./Tela Cadastro.html" > <button class="button-cadastro">  <b>Cadastro</b> </button></a>
 
-                <img id="logo" src="assets/Logo.png" class="logo1">
+                <!-- <img id="logo" src="assets/Logo.png" class="logo1"> -->
             </div>
             <div class="barra_lateral">
                 <i onclick="gerenciarMenu()" class="fa-solid fa-bars" style="color: #e8e1f1;"></i>
@@ -189,13 +189,19 @@ var idEmpresa = sessionStorage.ID_EMPRESA
     var dashboard = document.getElementById("dashBoard")
     var login = document.getElementById("login")
     var cadastro = document.getElementById("cadastro")
-    var logo = document.getElementById("logo")
+    // var logo = document.getElementById("logo")
+    var home = document.getElementById("home")
+    var plano = document.getElementById("plano")
+    var calculadora = document.getElementById("calculadora")
 
   if (idEmpresa == undefined) {
     dashboard.classList.add('esconder')
     login.classList.remove('esconder')
     cadastro.classList.remove('esconder')
-    logo.classList.add('esconder')
+    // logo.classList.add('esconder')
+    home.classList.remove('esconder')
+    plano.classList.remove('esconder')
+    calculadora.classList.remove('esconder')
 
     } else {
 
@@ -214,7 +220,10 @@ var idEmpresa = sessionStorage.ID_EMPRESA
                     dashboard.classList.remove('esconder')
                     login.classList.add('esconder')
                     cadastro.classList.add('esconder')
-                    logo.classList.remove('esconder')
+                    // logo.classList.remove('esconder')
+                    home.classList.add('esconder')
+                    plano.classList.add('esconder')
+                    calculadora.classList.add('esconder')
               
 
                 });

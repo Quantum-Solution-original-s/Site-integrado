@@ -23,17 +23,16 @@
             <h1 class="logo"></h1>
             <div class="nav-bar-left">
                 <ul>
-                    <li><a class="a-nav-left" href="../index.html">Home</a></li>
-                    <li><a class="a-nav-left" href="../Tela plano de sensores.html">Planos de sensores</a></li>
-                    <li><a class="a-nav-left" href="../Tela Calculadora.html" target="_blank">Calculadora</a></li>
+                    <li><a id="home" class="a-nav-left" href="../index.html">Home</a></li>
+                    <li><a id="plano" class="a-nav-left" href="../Tela plano de sensores.html">Planos de sensores</a></li>
+                    <li><a id="calculadora" class="a-nav-left" href="../Tela Calculadora.html" target="_blank">Calculadora</a></li>
                     <li><a class="a-nav-left" href="../Tela Contato.html">Contato</a></li>
-                    <li><a class="a-nav-left" href="../Tela Dashboard/Tela DashBoard.html">Dashboard</a></li>
                     <li><a class="a-nav-left" href="../Tela Quantum.html">Equipe Quantum</a></li>
+                    <li ><a  id="dashBoard" class="a-nav-left" href="../Tela Dashboard/Tela DashBoard.html">Dashboard</a></li>
                 </ul>
             </div>
             <div class="nav-bar-right">
 
-                <img src="../assets/Logo.png" class="logo1">
 
             </div>
             <div class="barra_lateral">
@@ -68,16 +67,7 @@
                 </div>
                 <div class="itens">
 
-                    <div class="mensagem-alerta">
-                        <div class="alert-dashboard">
-                            <p class="text-alert">Temperatura</p> 
-                            <label>Temperatura está com alteraçao no <a href="../Tela Dashboard/sensor1/sensor1.html"> Sensor 1</a></label>
-                        </div>
-                        <div class="alert-dashboard">
-                            <p class="text-alert">Umidade</p> 
-                            <label>Não há alteração em Umidade</label>
-                        </div>
-                    </div>
+                    
 
                     <div> 
                         <h1 class="fonteH1">Gráfico Média Temperatura e Umidade</h1>
@@ -189,8 +179,57 @@ options: {
     }
 }
 });
+
+
+var idEmpresa = sessionStorage.ID_EMPRESA
+  validacao()
+
+  
+
+  function validacao() {
+    var dashboard = document.getElementById("dashBoard")
+    var home = document.getElementById("home")
+    var plano = document.getElementById("plano")
+    var calculadora = document.getElementById("calculadora")
+
+  if (idEmpresa == undefined) {
+    dashboard.classList.add('esconder')
+    home.classList.remove('esconder')
+    plano.classList.remove('esconder')
+    calculadora.classList.remove('esconder')
+
+    } else {
+
+        fetch("/usuarios/validacao", {
+            method: 'GET'
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    console.log("nenhuma resposta encontrada")
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    dashboard.classList.remove('esconder')
+                    home.classList.add('esconder')
+                    plano.classList.add('esconder')
+                    calculadora.classList.add('esconder')
+              
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+
+        });
+      }
+
+    }
     </script>
 </body>
 
 </html>
-
