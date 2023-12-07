@@ -464,7 +464,7 @@ main {
 }
 
 .title-premium {
-    font-size: 35px;
+    font-size: 28px;
 }
 
 
@@ -480,12 +480,13 @@ main {
     /* Distribui espaço entre as divs filhas */
     align-items: flex-start;
     /* Alinha as divs filhas no topo */
-    max-width: 55vh;
+    max-width: 40vh;
     /* Define a largura máxima da div */
-    max-height: 80vh;
+    max-height: 100vh;
     /* Ajuste a altura máxima conforme necessário */
     margin-top: 3%;
     border-radius: 10px;
+    text-align: center;
     
 }
 
