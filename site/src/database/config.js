@@ -22,7 +22,7 @@ var mySqlConfig = {
     host: "localhost",
     database: "QuantumSensors",
     user: "root",
-    password: "neffex221",
+    password: "@Dedomindinho22"
 };
 
 function executar(instrucao) {
