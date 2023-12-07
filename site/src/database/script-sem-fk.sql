@@ -80,11 +80,12 @@ temperatura DECIMAL(4,2),
 umidade DECIMAL(4,2)
 );
 
-SELECT dt_horaAtual AS hora, umidade as Umi FROM registro;
-
-SELECT EXTRACT(HOUR FROM dt_horaAtual) AS somente_horas,
-       EXTRACT(MINUTE FROM dt_horaAtual) AS somente_minutos
-FROM registro;
+SELECT MAX(umidade) AS temperatura, MAX(temperatura) AS temperatura,
+       CONCAT(HOUR(dt_horaAtual), ':', MINUTE(dt_horaAtual)) AS hora_e_minutos
+FROM registro
+GROUP BY hora_e_minutos ORDER BY hora_e_minutos DESC;
+	
+TRUNCATE registro;
 
 -- INSERÇÃO DE REGISTROS NAS TABELAS
 

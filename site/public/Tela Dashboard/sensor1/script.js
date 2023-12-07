@@ -119,12 +119,10 @@ function capturaGrafico() {
         });
 
         setInterval(() => {
-            capturaGrafico();
-            capturaGrafico();
-            // obterDados(luminosidade, 'luminosidade');
+            plotarGrafico(resposta)
+        }, 2000);
             // obterDados(lm35Temperatura, 'lm35/temperatura');
             // obterDados(chave, 'chave');
-        }, 1000);
 
 }
 
@@ -159,16 +157,12 @@ function plotarGrafico(resposta) {
 
   // Inserindo valores recebidos em estrutura para plotar o gráfico
 
-var contador = 0
-
-
-for (i = 0; i < resposta.length; i++) {
+for (i = 0; i <  resposta.length; i++) {
     var registro = resposta[i];
     
-    contador++
     // labels.push(registro.Tentativas);
     dados.labels.push(registro.hora_e_minutos)
-    dados.datasets[0].data.push(registro.umidade);
+    dados.datasets[0].data.push(registro.temperatura);
 
     // dados.datasets[1].labels.push(registro.tentativas);
 }
@@ -193,7 +187,8 @@ for (i = 0; i < resposta.length; i++) {
       config
   );
 
-  setTimeout(() => atualizarGrafico(dados, myChart), 2000);
+     myChart = setTimeout(() => atualizarGrafico(dados, myChart), 2000);
+  
   }
 
   function atualizarGrafico(dados, myChart) {
@@ -340,13 +335,9 @@ function plotarGrafico(resposta) {
 
   // Inserindo valores recebidos em estrutura para plotar o gráfico
 
-var contador = 0
-
-
 for (i = 0; i < resposta.length; i++) {
     var registro = resposta[i];
     
-    contador++
     // labels.push(registro.Tentativas);
     dados.labels.push(registro.hora_e_minutos)
     dados.datasets[0].data.push(registro.temperatura);
@@ -470,14 +461,11 @@ function grafico3() {
     
       // Inserindo valores recebidos em estrutura para plotar o gráfico
     
-    var contador = 0
-    
     
     for (i = 0; i < resposta.length; i++) {
         var registro = resposta[i];
         
-        contador++
-        // labels.push(registro.Tentativas);
+            // labels.push(registro.Tentativas);
         dados.labels.push(registro.hora_e_minutos)
         dados.datasets[0].data.push(registro.temperatura);
     
@@ -625,15 +613,13 @@ function grafico4() {
       console.log(resposta)
     
       // Inserindo valores recebidos em estrutura para plotar o gráfico
-    
-    var contador = 0
+
     
     
     for (i = 0; i < resposta.length; i++) {
         var registro = resposta[i];
         
-        contador++
-        // labels.push(registro.Tentativas);
+            // labels.push(registro.Tentativas);
         dados.labels.push(registro.hora_e_minutos)
         dados.datasets[0].data.push(registro.umidade);
         
