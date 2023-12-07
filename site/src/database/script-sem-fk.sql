@@ -84,6 +84,14 @@ SELECT MAX(umidade) AS temperatura, MAX(temperatura) AS temperatura,
        CONCAT(HOUR(dt_horaAtual), ':', MINUTE(dt_horaAtual)) AS hora_e_minutos
 FROM registro
 GROUP BY hora_e_minutos ORDER BY hora_e_minutos DESC;
+
+select * from empresa;
+
+delete FROM empresa WHERE idEmpresa = 1;
+
+
+
+select * from registro;
 	
 TRUNCATE registro;
 
